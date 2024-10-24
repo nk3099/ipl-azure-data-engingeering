@@ -43,6 +43,7 @@ Please find the files as below:
 1. [createlogin.sql]()
 2. [get_tableschema.sql]()
 3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql]()
+![sql_ssms](https://github.com/user-attachments/assets/36f87b68-afde-40b7-b9b8-4fcd9b476427)
 
 
 # <a name="pipeline-flow"></a> Pipeline Flow
@@ -86,7 +87,7 @@ A Databricks-backed secret scope is stored in (backed by) an encrypted database 
 
 
 # <a name="power-bi"></a> Power BI
-![powerbi](https://github.com/user-attachments/assets/ccb9932b-da6f-41a8-b98d-ec6390911cab)
+![powerbi](https://github.com/user-attachments/assets/5021b632-c09f-4de4-a2a2-e87a786e930e)
 
 
 # <a name="debug-errors"></a> Debug Errors
