@@ -16,7 +16,7 @@
 
 
 # <a name="Dataset"></a>Dataset
-For this project, we are going to use the [IPL Dataset](https://data.world/raghu543/ipl-data-till-2017). Also, have added the dataset in [ipl-data.zip](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/ipl-data.zip) folder
+For this project, we are going to use the [IPL Dataset](https://data.world/raghu543/ipl-data-till-2017). Also, have added the dataset in [data](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/data/ipl-data.zip) folder
 
 These Datasets consists of following tables:
 - Ball_by_Ball
