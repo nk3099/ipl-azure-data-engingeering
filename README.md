@@ -61,7 +61,7 @@ The last layer of the lakehouse is the Gold layer. Data within the Gold layer is
 ![workspace-settings](https://github.com/user-attachments/assets/3e1b1064-4b21-49eb-9f40-15f527a8ed68)
 
 ### ADLS Gen2 (Azure DataLake Storage Gen2):
-- We are following [Medallion Architecure](#medallion-architecture) for our storage: \
+- We are following Medallion-Architecture for our storage: \
 ipl3099datalakegen2 (ADLS gen2) : Containers > 
 ```
 1.bronze
@@ -92,9 +92,9 @@ Similarly,
 
 #### On-Premise SQL:
 Please find the files as below:
-1. [createlogin.sql]()
-2. [get_tableschema.sql]()
-3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql]()
+1. [createlogin.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/createlogin.sql)
+2. [get_tableschema.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/get_tableschema.sql)
+3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql)
    
 ![sql_ssms](https://github.com/user-attachments/assets/36f87b68-afde-40b7-b9b8-4fcd9b476427)
 
