@@ -7,6 +7,7 @@
 - [Setting the workspace](#setting-the-workspace)
 - [Pipeline Flow](#pipeline-flow)
 - [Azure-backed secret scope](#Azure-backed-secret-scope)
+- [Power-BI](#power-bi)
 - [Debug Errors](#debug-errors)
 
 
@@ -15,7 +16,15 @@
 
 
 # <a name="Dataset"></a>Dataset
-For this project, we are going to use the [IPL Dataset](https://data.world/raghu543/ipl-data-till-2017)[google](google.com). These Datasets consist of three tables customer, orders, and order_items.
+For this project, we are going to use the [IPL Dataset](https://data.world/raghu543/ipl-data-till-2017). Also, added the dataset in [data]() folder
+
+These Datasets consists of following tables:
+- Ball_by_Ball
+- Match
+- Player
+- Player_Match
+- Team
+
 
 # <a name="Tech-Stack"></a>Tech Stack
 - PySpark
@@ -28,6 +37,12 @@ For this project, we are going to use the [IPL Dataset](https://data.world/raghu
 
 #### ADLS Gen2 (Azure DataLake Storage Gen2):
 ![ADF_pipeline1_adlsgen2_parquetdata](https://github.com/user-attachments/assets/8a9b3d70-9d01-4567-b685-08d3b8c54807)
+
+#### On-Premise SQL:
+Please find the files as below:
+1. [createlogin.sql]()
+2. [get_tableschema.sql]()
+3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql]()
 
 
 # <a name="pipeline-flow"></a> Pipeline Flow
@@ -68,6 +83,10 @@ A Databricks-backed secret scope is stored in (backed by) an encrypted database 
 4.databricks secrets delete-scope --scope <scope-name>
 ```
 ![scopes](https://github.com/user-attachments/assets/03580fcb-e38c-4fe4-8ef0-861595a1f8da)
+
+
+# <a name="power-bi"></a> Power BI
+![powerbi](https://github.com/user-attachments/assets/ccb9932b-da6f-41a8-b98d-ec6390911cab)
 
 
 # <a name="debug-errors"></a> Debug Errors
