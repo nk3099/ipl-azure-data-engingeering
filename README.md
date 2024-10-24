@@ -100,10 +100,13 @@ Similarly,
 Please find the files as below:
 1. [createlogin.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/createlogin.sql)
 2. [get_tableschema.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/get_tableschema.sql)
+   
+ ![sql_ssms](https://github.com/user-attachments/assets/36f87b68-afde-40b7-b9b8-4fcd9b476427)
+
+### Synapse:
 3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql)
    
-![sql_ssms](https://github.com/user-attachments/assets/36f87b68-afde-40b7-b9b8-4fcd9b476427)
-
+![synapse_stored_procedure](https://github.com/user-attachments/assets/608f8f64-8839-42e2-9d49-57b5db6c69f5)
 
 # <a name="pipeline-flow"></a> Pipeline Flow
 
