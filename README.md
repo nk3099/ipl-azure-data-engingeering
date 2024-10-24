@@ -1,4 +1,5 @@
 # IPL_Data_Analysis_Pyspark
+> This project is to analyze IPL data using various tools and technologies, including Azure Data Factory, Data Lake Gen 2, Synapse Analytics, and Azure Databricks.
 
 # Table of Contents
 - [Overview of the Design](#overview-of-the-design)
