@@ -9,6 +9,7 @@
 - [Secrets-Management](secrets-management)
   - [Azure Key Valut-backed scopeS](#Azure-backed-secret-scope)
   - [Databricks-backed scopes](https://github.com/nk3099/paris-olympic-azure-data-engingeering/blob/main/README.md#Databricks-backed-secret-scope)
+- [Azure Autehnication & Authorization](azure-authentication-&-authorization)
 - [Power-BI](#power-bi)
 - [Debug Errors](#debug-errors)
 
@@ -73,7 +74,7 @@ The last layer of the lakehouse is the Gold layer. Data within the Gold layer is
 ![ipl_adls2](https://github.com/user-attachments/assets/fea685c9-1272-40c5-8b9c-995f02de573d)
 
 ### DataBricks:
-![databricks](https://github.com/user-attachments/assets/de48c6ec-a790-441b-ac86-f54d0f4b6545)
+![databricks](https://github.com/user-attachments/assets/e1d6bac4-3a43-4657-9ba5-6d962a31ff59)
 
 ### File Structure:
 
@@ -141,6 +142,52 @@ created secret key="iplAccountKeySecret"
 3.Use the secret scopes in Databricks.
 ![ipl-databricks-scope](https://github.com/user-attachments/assets/7f25b735-25d2-4e2e-b48f-6e7995c10d76)
 
+
+# <a name="Azure-Authentication-&-Authorization"></a> Azure Authentication & Authorization
+To effectively segregate authentication and authorization in Azure, it's important to understand their distinct roles and how they apply to different storage types like ABFS (Azure Blob File System) and WASBS (Windows Azure Storage Blob Service). 
+
+- Authentication: This verifies the identity of users or services trying to access Azure resources. \
+- Authorization: This determines what authenticated users or services are allowed to do (e.g., read, write, delete) with those resources.
+
+## Authentication Methods:
+
+Azure Active Directory (Azure AD):
+```
+Commonly used for authentication in Azure services, including:
+ABFS: Typically used with Azure Data Lake Storage Gen2, Azure AD can authenticate users and applications accessing data.
+WASBS: While WASBS primarily relies on account keys or Shared Access Signatures (SAS), Azure AD can also be configured for authentication.
+```
+Storage Account Keys:
+```
+Used for both ABFS and WASBS to authenticate to the storage account directly.
+Best suited for scenarios where you need programmatic access without using Azure AD.
+```
+Shared Access Signatures (SAS):
+```
+Provide a way to grant limited access to storage resources without exposing account keys.
+Can be used with both ABFS and WASBS for temporary, scoped permissions.
+```
+Managed Identities:
+```
+Automatically manage credentials for Azure services, allowing applications to authenticate to Azure services without needing to store credentials.
+Works well with both ABFS and WASBS.
+```
+## Authorization Methods:
+
+Role-Based Access Control (RBAC):
+```
+Azure RBAC can be used to assign roles to users, groups, or applications, allowing fine-grained control over what actions they can perform on storage resources.
+Applicable for both ABFS and WASBS.
+```
+Access Control Lists (ACLs):
+```
+For ABFS (Azure Data Lake Storage), you can define ACLs at both the directory and file levels to specify permissions (read, write, execute).
+WASBS also supports Blob-level ACLs but is less granular compared to ABFS.
+```
+Container-level Permissions:
+```
+For WASBS, you can set permissions at the container level, which determines access to all blobs within that container.
+```
 
 # <a name="power-bi"></a> Power BI
 ![powerbi](https://github.com/user-attachments/assets/5021b632-c09f-4de4-a2a2-e87a786e930e)
