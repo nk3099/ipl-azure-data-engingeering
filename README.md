@@ -40,7 +40,8 @@ These Datasets consists of following tables:
 A medallion architecture is a data design pattern used to logically organize data in a lakehouse, with the goal of incrementally and progressively improving the structure and quality of data as it flows through each layer of the architecture (from Bronze ⇒ Silver ⇒ Gold layer tables). Medallion architectures are sometimes also referred to as "multi-hop" architectures.
 
 ![image](https://github.com/user-attachments/assets/8035ef50-77ad-4205-95d5-ef6c18a09944)
-Please refer [here](https://www.databricks.com/glossary/medallion-architecture)
+
+Please refer [here](https://www.databricks.com/glossary/medallion-architecture) to know more about medallion-architecture.
 
 ### Bronze layer
 ```
@@ -74,6 +75,11 @@ The last layer of the lakehouse is the Gold layer. Data within the Gold layer is
 ![ipl_adls2](https://github.com/user-attachments/assets/fea685c9-1272-40c5-8b9c-995f02de573d)
 
 ### DataBricks:
+Please find the notebooks for: \
+1. [ipl-3099_storage_mount_to_dfbs](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_storage_mount_to_dbfs.ipynb) \
+2. [ipl-3099_bronze-to_silver](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_bronze_to_silver.ipynb) \
+3. [ipl-3099_silver-to_gold](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_bronze_to_silver.ipynb)
+
 ![databricks](https://github.com/user-attachments/assets/e1d6bac4-3a43-4657-9ba5-6d962a31ff59)
 
 ### File Structure:
@@ -197,7 +203,7 @@ For WASBS, you can set permissions at the container level, which determines acce
 
 
 # <a name="debug-errors"></a> Debug Errors
-
+please find [debug](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/debug/debug.txt) file which contains the errors encountered (few screenshots attached below) and their solutions :)
 
 ![ADF_pipeline1_failed](https://github.com/user-attachments/assets/d42c78fa-af74-49dd-95e8-9d39de49cdb5)
 
