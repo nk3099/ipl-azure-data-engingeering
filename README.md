@@ -10,7 +10,8 @@
 
 
 # <a name="overview-of-the-design"></a> Overview of the Design
-![Architecture_Design](https://github.com/user-attachments/assets/515b8754-98a5-4046-bd1b-9a98cc15c4df)
+![image](https://github.com/user-attachments/assets/e27e349d-c01b-45c8-aaa8-fbd579c8ac2c)
+
 
 # <a name="Dataset"></a>Dataset
 For this project, we are going to use the [IPL Dataset](https://data.world/raghu543/ipl-data-till-2017). These Datasets consist of three tables customer, orders, and order_items.
