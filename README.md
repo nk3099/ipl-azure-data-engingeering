@@ -7,7 +7,7 @@
 - [Setting the workspace](#setting-the-workspace)
 - [Pipeline Flow](#pipeline-flow)
 - [Secrets-Management](secrets-management)
-  - [Azure Key Valut-backed scopeS](#Azure-backed-secret-scope)
+  - [Azure Key Valut-backed scopes](#Azure-backed-secret-scope)
   - [Databricks-backed scopes](https://github.com/nk3099/paris-olympic-azure-data-engingeering/blob/main/README.md#Databricks-backed-secret-scope)
 - [Azure Autehnication & Authorization](azure-authentication-&-authorization)
 - [Power-BI](#power-bi)
