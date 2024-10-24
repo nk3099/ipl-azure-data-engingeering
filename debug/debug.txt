@@ -1,0 +1,89 @@
+1. Error: The operation is not allowed by RBAC (Role Based Access Control).
+Source: Microsoft Learn: https://learn.microsoft.com/en-us/answers/questions/1370440/azure-keyvault-the-operation-is-not-allowed-by-rba
+Issue: If role assignments were recently changed, please wait several minutes for role assignments to become effective.
+Problem encountered when going to Key Vault Secrets.
+Solution:
+
+Step 1: Select the Resource group where creating Azure Key Vault.
+
+Select "Access Control (IAM)."
+Add "Add role assignment" and for Role search for "Key Vault Administrator."
+Select the member by searching name or email.
+Step 2: Back to the same Resource group.
+
+Go to "Access Control (IAM)."
+Step 3: Select "View my access" to find the created role.
+
+Step 4: Try creating Azure secret done.
+
+2. Error: Access policies not available.
+Source: Stack Overflow: https://stackoverflow.com/questions/76325987/access-policies-not-available
+Issue: The access configuration for this key vault is set to role-based access control.
+Problem encountered when going on access policies.
+Solution:
+There are no access policies available. Can you please help to fix it? I almost tried everything.
+
+Grant the 'proprietary' access in the key-vault-demo for the current user you are using.
+Go to the access configuration and change it to vault policy.
+There are two ways of authorizing access to Azure Key Vault data - either using Azure RBAC roles (recommended) or using Azure Key Vault Access Policies. You cannot combine these authorization modes.
+
+If you want to use access policies, you will need to switch the permission mode. To do so, click on "Access Configuration" in Key Vault details page in Azure Portal and make the switch.
+
+3. Error: SQL Server Configuration Manager.
+Source: YouTube: https://www.youtube.com/watch?v=Ft82BhJjW40
+Solution:
+
+Enable SQL Server authentication.
+Source: Stack Overflow: https://stackoverflow.com/questions/18060667/cannot-connect-to-server-a-network-related-or-instance-specific-error
+Source: YouTube: https://www.youtube.com/watch?v=-UY0fHckkGc
+4. Error: ADLS Gen2 operation failed.
+Source: AzureDataLakeStorage_LinkedService_for_ADF
+Message: Operation returned an invalid status code 'Conflict'.
+Solution:
+Worked: Had to enable Hierarchical namespace while creating datalakegen2foripl3099.
+Does your storage account have Hierarchical Namespace enabled? If yes, you should be using Data Lake Gen2 connector. If no, you should use Azure Blob Storage connector.
+
+If you get an error "Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access," then follow these steps in SSMS:
+
+Server (Right Click) -> Properties -> Security -> Server Authentication -> SQL Server and Windows Authentication Mode.
+Restart the server and test the connection.
+Source: Stack Overflow: https://stackoverflow.com/questions/72864926/cause-for-this-endpoint-does-not-support-blobstorageevents-or-softdelete-in-az/72881358
+
+Check if your storage type is General purpose V2. You can go to Storage account Settings and under Configuration section you can find these details.
+From the error, it seems to be an incorrect storage type. Could you please double-check if your storage type is Azure Blob storage or Azure Data Lake Storage Gen2 account?
+
+5. Error: PERMISSION_DENIED on KeyVault to Azure Databricks.
+Source: Stack Overflow: https://stackoverflow.com/questions/77484139/azure-databricks-wont-access-key-vault-permissions-error-from-rbac#:~:text=To%20resolve%20the%20error%2C%20make,principal%20under%20your%20key%20vault.&text=You%20can%20now%20access%20Azure,python%20from%20Azure%20Databricks%20workspace
+Issue: Invalid permissions on the specified KeyVault.
+Solution: Ensure the Azure Databricks service principal has the correct role assigned in the Key Vault.
+
+6. Error: Unable to access container.
+Message: "Unable to access container bronze in account ipl3099datalakegen2.dfs.core.windows.net using anonymous credentials."
+Solution:
+Double-check the storage account and permissions. Ensure that the path exists and that you are using the correct authentication method.
+Source: Stack Overflow: https://stackoverflow.com/questions/69825487/error-invalid-configuration-value-detected-for-fs-azure-account-key
+
+7. Error: Unsupported Azure Scheme: abfss.
+Solution:
+Your Databricks runtime does not support abfss. Upgrade to Databricks Runtime 7.x or later.
+Note: Given that you're using Databricks Runtime 3.5x, which is quite old, it does not support the abfss protocol.
+
+8. Error: A schema mismatch detected when writing to the Delta table.
+Solution:
+To enable schema migration using DataFrameWriter or DataStreamWriter, please set:
+.option("mergeSchema", "true").
+For other operations, set the session configuration
+spark.databricks.delta.schema.autoMerge.enabled to "true."
+Source: Stack Overflow: https://stackoverflow.com/questions/60915267/a-schema-mismatch-detected-when-writing-to-the-delta-table-azure-databricks
+
+9. Error: Data type mismatches when reading Parquet column.
+Message: Expected Spark type string(0), actual Parquet type INT32.
+Solution:
+
+Use the mergeSchema option while reading the file.
+Define the schema explicitly when reading the Parquet file.
+To overwrite your schema or change partitioning, set:
+.option("overwriteSchema", "true").
+10. Error: Could not obtain exclusive lock on database 'model'.
+Solution: Retry the operation later. The database system is currently unable to acquire an exclusive lock on the database named "model."
+
