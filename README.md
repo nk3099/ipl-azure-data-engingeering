@@ -6,10 +6,10 @@
 - [Tech Stack](#Tech-Stack)
 - [Setting the workspace](#setting-the-workspace)
 - [Pipeline Flow](#pipeline-flow)
-- [Secrets-Management](secrets-management)
+- [Secrets-Management](#secrets-management)
   - [Azure Key Valut-backed scopes](#Azure-backed-secret-scope)
   - [Databricks-backed scopes](https://github.com/nk3099/paris-olympic-azure-data-engingeering/blob/main/README.md#Databricks-backed-secret-scope)
-- [Azure Autehnication & Authorization](azure-authentication-&-authorization)
+- [Azure Autehnication & Authorization](#azure-authentication-&-authorization)
 - [Power-BI](#power-bi)
 - [Debug Errors](#debug-errors)
 
@@ -203,7 +203,7 @@ For WASBS, you can set permissions at the container level, which determines acce
 
 
 # <a name="debug-errors"></a> Debug Errors
-please find [debug](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/debug/debug.txt) file which contains the errors encountered (few screenshots attached below) and their solutions :)
+please find [debug-errors](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/debug/debug.txt) file which contains the errors encountered (few screenshots attached below) and their solutions :)
 
 ![ADF_pipeline1_failed](https://github.com/user-attachments/assets/d42c78fa-af74-49dd-95e8-9d39de49cdb5)
 
