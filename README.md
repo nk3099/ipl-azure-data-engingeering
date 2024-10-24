@@ -32,17 +32,70 @@ These Datasets consists of following tables:
 - Azure
 - Databricks
 
+  
+# <a name="Medallion-Architecture"></a> Medallion Architecure
+A medallion architecture is a data design pattern used to logically organize data in a lakehouse, with the goal of incrementally and progressively improving the structure and quality of data as it flows through each layer of the architecture (from Bronze ⇒ Silver ⇒ Gold layer tables). Medallion architectures are sometimes also referred to as "multi-hop" architectures.
+
+![image](https://github.com/user-attachments/assets/8035ef50-77ad-4205-95d5-ef6c18a09944)
+Please refer [here](https://www.databricks.com/glossary/medallion-architecture)
+
+### Bronze layer
+```
+The Bronze layer serves as the initial landing ground for all data originating from external source systems. Datasets within this layer mirror the structures of the source system tables in their original state, supplemented by extra metadata columns such as load date/time and process ID. The primary emphasis here is on Change Data Capture, enabling historical archiving of the source data, maintaining data lineage, facilitating audit trails, and allowing for reprocessing if necessary without requiring a fresh read from the source system.
+```
+
+### Silver layer
+```
+The next layer of the lakehouse is the Silver layer. Within this layer, data from the Bronze layer undergoes a series of operations to a “just-enough” state (which will be discussed in detail later). This prepares the data in the Silver layer to offer an encompassing “enterprise view” comprising essential business entities, concepts, and transactions.
+```
+
+### Gold layer
+```
+The last layer of the lakehouse is the Gold layer. Data within the Gold layer is typically structured into subject area specific databases, primed for consumption. This layer is dedicated to reporting and employs denormalized, read-optimized data models with minimal joins. It serves as the ultimate stage for applying data transformations and quality rules. Commonly, you will observe the integration of Kimball-style star schema based data marts within the Gold Layer of the lakehouse.
+```
+
+
+
+
 # <a name="setting-the-workspace"></a> Setting the workspace
 ![workspace-settings](https://github.com/user-attachments/assets/3e1b1064-4b21-49eb-9f40-15f527a8ed68)
 
-#### ADLS Gen2 (Azure DataLake Storage Gen2):
-![ADF_pipeline1_adlsgen2_parquetdata](https://github.com/user-attachments/assets/8a9b3d70-9d01-4567-b685-08d3b8c54807)
+### ADLS Gen2 (Azure DataLake Storage Gen2):
+- We are following [Medallion Architecure](#medallion-architecture) for our storage: \
+ipl3099datalakegen2 (ADLS gen2) : Containers > 
+```
+1.bronze
+2.silver
+3.gold
+```
+![ipl_adls2](https://github.com/user-attachments/assets/fea685c9-1272-40c5-8b9c-995f02de573d)
+
+#### File Structure
+
+```
+1.Bronze > dbo > [Tables] > {files}.parquet:
+- Ball_by_Ball.parquet
+- Match.parquet
+- Player.parquet
+- Player_Match.parquet
+- Team.parquet
+```
+![ipl_adls](https://github.com/user-attachments/assets/62e74677-0bb9-4c81-af9b-a2bafb31984f)
+
+```
+Similarly,   
+2.Silver > [Tables] > {parquet-part-files}
+3.Gold > [Tables] > {parquet-part-files}
+```
+![gold_parquet](https://github.com/user-attachments/assets/cc448014-5613-49bf-81a6-cab11fe14e85)
+
 
 #### On-Premise SQL:
 Please find the files as below:
 1. [createlogin.sql]()
 2. [get_tableschema.sql]()
 3. [StoredProcedure_CreateSQLServerlessView_ipl_gold_layer_db.sql]()
+   
 ![sql_ssms](https://github.com/user-attachments/assets/36f87b68-afde-40b7-b9b8-4fcd9b476427)
 
 
