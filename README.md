@@ -6,7 +6,9 @@
 - [Tech Stack](#Tech-Stack)
 - [Setting the workspace](#setting-the-workspace)
 - [Pipeline Flow](#pipeline-flow)
-- [Azure-backed secret scope](#Azure-backed-secret-scope)
+- [Secrets-Management](secrets-management)
+  - [Azure Key Valut-backed scopeS](#Azure-backed-secret-scope)
+  - [Databricks-backed scopes](https://github.com/nk3099/paris-olympic-azure-data-engingeering/blob/main/README.md#Databricks-backed-secret-scope)
 - [Power-BI](#power-bi)
 - [Debug Errors](#debug-errors)
 
@@ -62,7 +64,7 @@ The last layer of the lakehouse is the Gold layer. Data within the Gold layer is
 
 ### ADLS Gen2 (Azure DataLake Storage Gen2):
 - We are following Medallion-Architecture for our storage: \
-ipl3099datalakegen2 (ADLS gen2) : Containers > 
+  @ipl3099datalakegen2 (ADLS gen2) : Containers > 
 ```
 1.bronze
 2.silver
@@ -70,7 +72,10 @@ ipl3099datalakegen2 (ADLS gen2) : Containers >
 ```
 ![ipl_adls2](https://github.com/user-attachments/assets/fea685c9-1272-40c5-8b9c-995f02de573d)
 
-#### File Structure
+### DataBricks:
+![databricks](https://github.com/user-attachments/assets/de48c6ec-a790-441b-ac86-f54d0f4b6545)
+
+### File Structure:
 
 ```
 1.Bronze > dbo > [Tables] > {files}.parquet:
@@ -90,7 +95,7 @@ Similarly,
 ![gold_parquet](https://github.com/user-attachments/assets/cc448014-5613-49bf-81a6-cab11fe14e85)
 
 
-#### On-Premise SQL:
+### On-Premise SQL:
 Please find the files as below:
 1. [createlogin.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/createlogin.sql)
 2. [get_tableschema.sql](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/sql_files/get_tableschema.sql)
@@ -107,36 +112,34 @@ Please find the files as below:
 #### Multiple Tables Copy Activity and Pipeline Sequence:
 ![ADFP_pipelineRun2](https://github.com/user-attachments/assets/f8982299-1036-4d78-9229-7d13b77905cb)
 
+# <a name="Secrets-Management"></a> Secrets Management
+```
+Managing secrets begins with creating a secret scope. A secret scope is collection of secrets identified by a name.
+A workspace is limited to a maximum of 1000 secrets scopes.
 
-# <a name="Azure-backed-secret-scope"></a> Azure-backed secret scope
-A Databricks-backed secret scope is stored in (backed by) an encrypted database owned and managed by Azure Databricks.
-
+There are two types of secret scopes:
+- Azure Key Vault-backed scopes
+- Databricks-backed scopes
+```
+## <a name="Azure-backed-secret-scope"></a> Azure-backed secret scope
+To reference secrets stored in an Azure Key Vault, we need to create a secret scope backed by Azure Key Vault.
 ![ipl-scopes](https://github.com/user-attachments/assets/b7b650d8-2276-4d1d-b04b-c105e5059524)
 
-![databricks-scope](https://github.com/user-attachments/assets/339d0767-54b9-4b0f-a2fb-da3e87aec26e)
+### Steps:
+1. Go to https://<databricks-instance>#secrets/createScope
+   ```
+   created scope="ipl_project_scope"
+   ```
+   ![ipl-scope](https://github.com/user-attachments/assets/59087c1f-8119-414f-8027-71fee2c66113)
 
-
-## Steps:
-
-1.Install Databricks CLI and configure with your workspace. \
+2. Create secrets inside Azure Key-vault for the "ipl_project_scope"
 ```
-1.pip install databricks-cli
-2.databricsk configure --help
-3.databricks configure --token
-4.Go to C:\Users\.databrickscg (databricks configuration file) and make sure host_url and token is pasted correctly.
+created secret key="iplAccountKeySecret"
 ```
+![key-vault-scope](https://github.com/user-attachments/assets/2cde62e0-6864-4e5d-ae6b-cff2571c3cad)
 
-![configure-databricks-cli](https://github.com/user-attachments/assets/cbacaebb-6e2b-4f19-8365-79c98289193a)
-
-
-2.Creating azure-backed secret scope commands:
-```
-1.databricks secrets create-scope --scope <scope-name> --initial-manage-principal users
-2.databricks secret put --scope <scope-name> --key <key-name>
-3.databricks secrets list --scope <scope-name>
-4.databricks secrets delete-scope --scope <scope-name>
-```
-![scopes](https://github.com/user-attachments/assets/03580fcb-e38c-4fe4-8ef0-861595a1f8da)
+3.Use the secret scopes in Databricks.
+![ipl-databricks-scope](https://github.com/user-attachments/assets/7f25b735-25d2-4e2e-b48f-6e7995c10d76)
 
 
 # <a name="power-bi"></a> Power BI
