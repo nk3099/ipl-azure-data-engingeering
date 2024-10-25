@@ -76,9 +76,9 @@ The last layer of the lakehouse is the Gold layer. Data within the Gold layer is
 ![ipl_adls2](https://github.com/user-attachments/assets/fea685c9-1272-40c5-8b9c-995f02de573d)
 
 ### DataBricks:
-Please find the notebooks for: \
-1. [ipl-3099_storage_mount_to_dfbs](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_storage_mount_to_dbfs.ipynb) \
-2. [ipl-3099_bronze-to_silver](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_bronze_to_silver.ipynb) \
+Please find the notebooks for: 
+1. [ipl-3099_storage_mount_to_dfbs](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_storage_mount_to_dbfs.ipynb) 
+2. [ipl-3099_bronze-to_silver](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_bronze_to_silver.ipynb) 
 3. [ipl-3099_silver-to_gold](https://github.com/nk3099/IPL_Data_Analysis_Pyspark/blob/main/databricks/ipl-3099_bronze_to_silver.ipynb)
 
 ![databricks](https://github.com/user-attachments/assets/e1d6bac4-3a43-4657-9ba5-6d962a31ff59)
