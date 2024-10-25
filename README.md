@@ -137,7 +137,7 @@ To reference secrets stored in an Azure Key Vault, we need to create a secret sc
 ![ipl-scopes](https://github.com/user-attachments/assets/b7b650d8-2276-4d1d-b04b-c105e5059524)
 
 ### Steps:
-1. Go to https://<databricks-instance>#secrets/createScope
+1. Go to https://\<databricks-instance>\#secrets/createScope
    ```
    created scope="ipl_project_scope"
    ```
