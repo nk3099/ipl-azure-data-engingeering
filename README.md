@@ -10,7 +10,7 @@
 - [Secrets-Management](#Secrets-Management)
   - [Azure Key Valut-backed scopes](#Azure-backed-secret-scope)
   - [Databricks-backed scopes](https://github.com/nk3099/paris-olympic-azure-data-engingeering/blob/main/README.md#Databricks-backed-secret-scope)
-- [Azure Autehnication & Authorization](#Azure-Authentication-&-Authorization)
+- [Azure Authentication & Authorization](#Azure-Authentication-&-Authorization)
 - [Power-BI](#power-bi)
 - [Debug Errors](#debug-errors)
 
